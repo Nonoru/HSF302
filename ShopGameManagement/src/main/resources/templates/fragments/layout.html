@@ -52,10 +52,13 @@
                             <i class="fas fa-user"></i>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item" href="/login">Login</a></li>
-                            <li><a class="dropdown-item" href="/register">Register</a></li>
+                            <li><a class="dropdown-item" th:href="@{login}">Login</a></li>
+                            <li><a class="dropdown-item" th:href="@{register}">Register</a></li>
                         </ul>
                     </div>
+                </div>
+                <div th:if="${session.account != null}">
+                    <span th:text="${session.account.username}"></span>
                 </div>
             </div>
         </div>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Xin chào ' + ${name}">Trang chào</title>
+</head>
+<body>
+    <h1>Trang đăng nhập</h1>
+    <form th:action="@{login-handle}" method="post">
+        <p th:text="${appError}"></p>
+        <label>
+            <span>Username: </span>
+            <input type="text" name="username">
+        </label>
+        <label>
+            <span>Password: </span>
+            <input type="password" name="password">
+        </label>
+        <button type="submit">Sign in</button>
+    </form>
+
+</body>
+</html>

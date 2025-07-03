@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1 th:text="'Chào bạn, ' + ${name}">HEHE</h1>
+<form th:action="@{/register-handle}" method="post" th:object="${accountForm}">
+    <label>
+        <span>Username: </span>
+        <input type="text" th:field="*{username}" />
+        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="text-danger"></p>
+    </label>
+
+    <label>
+        <span>Password: </span>
+        <input type="password" th:field="*{password}" />
+        <p th:text="${appError}"></p>
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"></p>
+    </label>
+
+    <label>
+        <span>Confirm password: </span>
+        <input type="password" th:field="*{confirmPassword}" />
+        <p th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" class="text-danger"></p>
+    </label>
+
+    <button type="submit">Sign up</button>
+</form>
+
+</body>
+</html>

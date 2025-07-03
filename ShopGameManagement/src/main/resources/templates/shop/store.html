@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="~{fragments/layout :: head}"></head>
+<body class="d-flex flex-column min-vh-100">
+    <div th:replace="~{fragments/layout :: navbar}"></div>
+
+    <main class="flex-grow-1">
+        <!-- Store Banner -->
+        <section class="store-banner">
+            <div class="container-fluid p-0">
+                <div class="banner-content text-center">
+                    <h1 class="display-4">GAME STORE</h1>
+                    <p class="lead">Discover thousands of games</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Store Content -->
+        <section class="store-content py-5">
+            <div class="container">
+                <div class="row">
+                    <!-- Sidebar with filters -->
+                    <div class="col-lg-3 mb-4">
+                        <div class="sidebar-filters">
+                            <h4>Filters</h4>
+                            <div class="filter-section">
+                                <h5>Price Range</h5>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="price1">
+                                    <label class="form-check-label" for="price1">Under $10</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="price2">
+                                    <label class="form-check-label" for="price2">$10 - $20</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="price3">
+                                    <label class="form-check-label" for="price3">$20 - $30</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="price4">
+                                    <label class="form-check-label" for="price4">$30+</label>
+                                </div>
+                            </div>
+                            <div class="filter-section">
+                                <h5>Categories</h5>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="cat1">
+                                    <label class="form-check-label" for="cat1">Action</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="cat2">
+                                    <label class="form-check-label" for="cat2">Adventure</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="cat3">
+                                    <label class="form-check-label" for="cat3">RPG</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="cat4">
+                                    <label class="form-check-label" for="cat4">Strategy</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="cat5">
+                                    <label class="form-check-label" for="cat5">Sports</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="cat6">
+                                    <label class="form-check-label" for="cat6">Simulation</label>
+                                </div>
+                            </div>
+                            <div class="filter-section">
+                                <h5>Features</h5>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="feat1">
+                                    <label class="form-check-label" for="feat1">Multiplayer</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="feat2">
+                                    <label class="form-check-label" for="feat2">Co-op</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="feat3">
+                                    <label class="form-check-label" for="feat3">Single Player</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="feat4">
+                                    <label class="form-check-label" for="feat4">Controller Support</label>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary w-100 mt-3">Apply Filters</button>
+                        </div>
+                    </div>
+
+                    <!-- Game listings -->
+                    <div class="col-lg-9">
+                        <div class="store-header mb-4 d-flex justify-content-between align-items-center">
+                            <h2>All Games</h2>
+                            <div class="dropdown">
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown">
+                                    Sort By: Relevance
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Relevance</a></li>
+                                    <li><a class="dropdown-item" href="#">Price: Low to High</a></li>
+                                    <li><a class="dropdown-item" href="#">Price: High to Low</a></li>
+                                    <li><a class="dropdown-item" href="#">Release Date</a></li>
+                                    <li><a class="dropdown-item" href="#">Popularity</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Game Grid -->
+                        <div class="row" id="game-grid">
+                            <div class="col-md-4 mb-4">
+                                <div class="game-card">
+                                    <div class="game-video-container">
+                                        <iframe 
+                                            class="game-video"
+                                            width="100%" 
+                                            height="180" 
+                                            data-src="https://www.youtube.com/embed/MKrUZ36IVAY?autoplay=1&mute=1" 
+                                            src=""
+                                            title="OutLast Trailer" 
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                            allowfullscreen>
+                                        </iframe>
+                                        <img src="data:image/jpeg;base64,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" class="video-thumbnail">
+                                    </div>
+                                    <div class="game-info">
+                                        <h3>OutLast</h3>
+                                        <p class="game-tags">Horror, Survival, Adventure</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="game-price">$39.99</span>
+                                            <button class="btn btn-sm btn-success">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="game-card">
+                                    <div class="game-video-container">
+                                        <iframe 
+                                            class="game-video"
+                                            width="100%" 
+                                            height="180" 
+                                            data-src="https://www.youtube.com/embed/oSfoK8eSeD8?autoplay=1&mute=1" 
+                                            src=""
+                                            title="R.E.P.O Trailer" 
+                                            frameborder="0" 
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                            allowfullscreen>
+                                        </iframe>
+                                        <img src="https://hoanghamobile.com/tin-tuc/wp-content/uploads/2025/04/repo-game-5.jpg" class="video-thumbnail">
+                                    </div>
+                                    <div class="game-info">
+                                        <h3>R.E.P.O</h3>
+                                        <p class="game-tags">Sci-Fi, Action, Adventure</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="game-price">$59.99</span>
+                                            <button class="btn btn-sm btn-success">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="game-card">
+                                    <div class="game-video-container">
+                                        <iframe 
+                                            class="game-video"
+                                            width="100%" 
+                                            height="180" 
+                                            data-src="https://www.youtube.com/embed/u83VdXAVq08?autoplay=1&mute=1" 
+                                            src=""
+                                            title="Black Myth Wukong Trailer" 
+                                            frameborder="0" 
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                            allowfullscreen>
+                                        </iframe>
+                                        <img src="https://i.ytimg.com/vi/u83VdXAVq08/maxresdefault.jpg" class="video-thumbnail">
+                                    </div>
+                                    <div class="game-info">
+                                        <h3>Black Myth Wukong</h3>
+                                        <p class="game-tags">Action, Adventure, RPG</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="game-price">$49.99</span>
+                                            <button class="btn btn-sm btn-success">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pagination -->
+                        <nav class="mt-4">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div th:replace="~{fragments/layout :: footer}"></div>
+    <div th:replace="~{fragments/layout :: scripts}"></div>
+
+    <!-- Script for video hover effect -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const gameCards = document.querySelectorAll('.game-card');
+            
+            gameCards.forEach(card => {
+                const container = card.querySelector('.game-video-container');
+                const iframe = card.querySelector('iframe.game-video');
+                const thumbnail = card.querySelector('.video-thumbnail');
+                
+                card.addEventListener('mouseenter', function() {
+                    const videoSrc = iframe.getAttribute('data-src');
+                    iframe.setAttribute('src', videoSrc);
+                    thumbnail.style.opacity = '0';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    iframe.setAttribute('src', '');
+                    thumbnail.style.opacity = '1';
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

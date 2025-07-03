@@ -1,0 +1,605 @@
+/* Global Styles */
+:root {
+    --primary-color: #1a2035;
+    --secondary-color: #2a3f5f;
+    --accent-color: #66c0f4;
+    --text-color: #c6d4df;
+    --dark-bg: #1b2838;
+    --card-bg: #2a3f5f;
+    --border-color: #4c698a;
+    --cyberpunk-yellow: #fcee0a;
+    --cyberpunk-blue: #00ffff;
+    --cyberpunk-pink: #ff00ff;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+}
+
+.navbar {
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--accent-color) !important;
+    margin-right: 2rem;
+}
+
+/* Navigation spacing */
+.navbar-nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    max-width: 500px;
+}
+
+.nav-item {
+    text-align: center;
+    flex: 1;
+}
+
+.nav-link {
+    color: var(--text-color) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important;
+    transform: translateY(-2px);
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu-dark {
+    background-color: var(--primary-color);
+    border: 1px solid var(--border-color);
+}
+
+.dropdown-menu-dark .dropdown-item {
+    color: var(--text-color);
+}
+
+.dropdown-menu-dark .dropdown-item:hover {
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
+}
+
+.dropdown-menu-dark .dropdown-divider {
+    border-top: 1px solid var(--border-color);
+}
+
+.footer {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 2rem 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    color: var(--text-color);
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+}
+
+.section-title {
+    color: var(--accent-color);
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Game Trailers Section */
+.game-trailers-section {
+    background-color: #121620;
+    padding: 50px 0;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.game-trailers-section .section-title {
+    color: var(--cyberpunk-yellow);
+    border-bottom-color: var(--cyberpunk-blue);
+    text-transform: uppercase;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px var(--cyberpunk-blue), 0 0 20px var(--cyberpunk-pink);
+}
+
+.game-trailers-section .card {
+    transition: transform 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.game-trailers-section .card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.game-trailers-section .ratio {
+    border: 3px solid var(--cyberpunk-blue);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 10px var(--cyberpunk-blue), 0 0 20px var(--cyberpunk-pink);
+}
+
+.game-trailers-section h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--cyberpunk-blue);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.game-trailers-section p {
+    color: #8f98a0;
+}
+
+/* Home Page Styles */
+.hero-banner {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.video-container iframe {
+    width: 100vw;
+    height: 56.25vw; /* 16:9 aspect ratio */
+    min-height: 100%;
+    min-width: 177.77vh; /* 16:9 aspect ratio */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* Prevents clicking on the video */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 3;
+    padding: 2rem;
+}
+
+.banner-content h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px var(--cyberpunk-blue), 0 0 20px var(--cyberpunk-pink);
+    color: var(--cyberpunk-yellow);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.banner-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    color: var(--cyberpunk-blue);
+}
+
+.banner-content .btn-primary {
+    background-color: var(--cyberpunk-yellow);
+    border: none;
+    color: #000;
+    font-weight: bold;
+    padding: 0.75rem 2rem;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.banner-content .btn-primary:hover {
+    background-color: var(--cyberpunk-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Game Card Styles */
+.game-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border-color: var(--cyberpunk-blue);
+}
+
+.game-img-container {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.game-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.game-card:hover .game-img {
+    transform: scale(1.05);
+}
+
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.game-card:hover .game-overlay {
+    opacity: 1;
+}
+
+.game-info {
+    padding: 1rem;
+}
+
+.game-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.game-tags {
+    color: #8f98a0;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.game-price {
+    font-weight: bold;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+/* Category Cards */
+.category-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    display: block;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    height: 100%;
+    border: 1px solid var(--border-color);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    background-color: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+}
+
+.category-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.category-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+/* News Cards */
+.news-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    height: 100%;
+    border: 1px solid var(--border-color);
+}
+
+.news-card h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.news-date {
+    color: #8f98a0;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* Store Page Styles */
+.store-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/store-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.sidebar-filters {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.filter-section {
+    margin-bottom: 1.5rem;
+}
+
+.filter-section h5 {
+    color: white;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+/* Game Details Page */
+.game-detail-header h1 {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.game-developer {
+    color: #8f98a0;
+    margin-bottom: 1rem;
+}
+
+.game-description h3, .system-requirements h3, .game-reviews h3 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.req-box {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    height: 100%;
+    border: 1px solid var(--border-color);
+}
+
+.req-box h4 {
+    color: white;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.game-purchase-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    position: sticky;
+    top: 20px;
+}
+
+.rating-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #66c0f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.rating-circle span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.review-item {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.discount-badge {
+    background-color: #4c6b22;
+    color: #a4d007;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #8f98a0;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+
+/* Cyberpunk Theme Elements */
+.cyberpunk-text {
+    color: var(--cyberpunk-yellow);
+    text-shadow: 0 0 10px var(--cyberpunk-blue), 0 0 20px var(--cyberpunk-pink);
+}
+
+.cyberpunk-border {
+    border: 2px solid var(--cyberpunk-yellow);
+    box-shadow: 0 0 10px var(--cyberpunk-blue), 0 0 20px var(--cyberpunk-pink);
+}
+
+/* Animation for cyberpunk elements */
+@keyframes glitch {
+    0% { text-shadow: 0 0 10px var(--cyberpunk-blue), 0 0 20px var(--cyberpunk-pink); }
+    25% { text-shadow: 5px 5px 10px var(--cyberpunk-pink), -5px -5px 10px var(--cyberpunk-blue); }
+    50% { text-shadow: -5px 5px 10px var(--cyberpunk-blue), 5px -5px 10px var(--cyberpunk-pink); }
+    75% { text-shadow: 5px -5px 10px var(--cyberpunk-pink), -5px 5px 10px var(--cyberpunk-blue); }
+    100% { text-shadow: 0 0 10px var(--cyberpunk-blue), 0 0 20px var(--cyberpunk-pink); }
+}
+
+.hero-banner h1 {
+    animation: glitch 5s infinite alternate;
+}
+
+.video-play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 4rem;
+    z-index: 2;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.ratio:hover .video-play-icon {
+    opacity: 1;
+    color: var(--cyberpunk-yellow);
+    text-shadow: 0 0 10px var(--cyberpunk-blue), 0 0 20px var(--cyberpunk-pink);
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.video-container-trailer {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 3px solid var(--cyberpunk-blue);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 10px var(--cyberpunk-blue), 0 0 20px var(--cyberpunk-pink);
+    transition: all 0.3s ease;
+}
+
+.video-container-trailer:hover {
+    transform: scale(1.02);
+}
+
+.video-container-trailer iframe {
+    display: block;
+}
+
+.video-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    z-index: 2;
+    opacity: 1;
+}
+
+.game-card:hover .video-thumbnail {
+    opacity: 0;
+}
+
+.game-video {
+    position: relative;
+    z-index: 1;
+}
+
+.game-video-container {
+    position: relative;
+    overflow: hidden;
+    height: 180px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border: 2px solid var(--accent-color);
+    border-bottom: none;
+    box-shadow: 0 0 10px rgba(102, 192, 244, 0.5);
+    transition: all 0.3s ease;
+    background-color: #1a2035;
+}
+
+.game-video-container:hover {
+    border-color: var(--cyberpunk-blue);
+    box-shadow: 0 0 15px var(--cyberpunk-blue), 0 0 30px var(--cyberpunk-pink);
+}
+
+.game-video-container iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    border: none;
+}
+
+.play-icon {
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.game-card:hover .play-icon {
+    transform: scale(1.2);
+    color: var(--cyberpunk-yellow);
+    text-shadow: 0 0 10px var(--cyberpunk-blue), 0 0 20px var(--cyberpunk-pink);
+} 

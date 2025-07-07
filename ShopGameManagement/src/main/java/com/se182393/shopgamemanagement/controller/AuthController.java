@@ -25,6 +25,8 @@ public class AuthController {
     public String toLogin() {
         return "auth/login";
     }
+
+
     @PostMapping("/login-handle")
     public String handleLogin(@ModelAttribute AccountLoginRequest request, HttpSession session, Model model) {
         AccountSessionResponse sessionResponse = accountService.loginAccout(request);
@@ -36,11 +38,14 @@ public class AuthController {
             return "auth/login";
         }
     }
+
     @GetMapping("/register")
     public String toRegister(Model model) {
         model.addAttribute("accountForm", new AccountRegisterRequest());
         return "auth/register";
     }
+
+
     @PostMapping("/register-handle")
     public String handleRegister
         (@ModelAttribute("accountForm") @Valid AccountRegisterRequest request, BindingResult result, Model model) {

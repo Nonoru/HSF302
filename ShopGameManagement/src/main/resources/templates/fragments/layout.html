@@ -46,7 +46,7 @@
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
                 </form>
-                <div class="ms-3">
+                <div class="ms-3" th:if="${session.account == null}">
                     <div class="dropdown">
                         <button class="btn btn-outline-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-user"></i>
@@ -57,8 +57,11 @@
                         </ul>
                     </div>
                 </div>
-                <div th:if="${session.account != null}">
-                    <span th:text="${session.account.username}"></span>
+                <div th:if="${session.account != null}" class="ms-3 d-flex align-items-center">
+                    <span class="me-3" th:text="${session.account.username}"></span>
+                    <a href="/cart" class="btn btn-outline-light cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -111,6 +114,45 @@
             </div>
         </div>
     </footer>
+
+    <!-- Cart Added Notification Modal -->
+    <div th:fragment="cart-notification" class="cart-notification-modal" id="cartNotificationModal">
+        <div class="cart-notification-content">
+            <div class="cart-notification-header">
+                <h3>Added to your cart!</h3>
+                <button type="button" class="btn-close" id="closeCartNotification" aria-label="Close"></button>
+            </div>
+            <div class="cart-notification-body">
+                <div class="cart-item-details">
+                    <div class="cart-item-image">
+                        <img id="cartItemImage" src="" alt="Game Image">
+                    </div>
+                    <div class="cart-item-info">
+                        <h4 id="cartItemName"></h4>
+                        <p>Already in your cart: <span id="cartItemQuantity">1</span></p>
+                        <div class="cart-item-platform">
+                            <i class="fab fa-windows"></i>
+                        </div>
+                    </div>
+                    <div class="cart-item-price">
+                        <div class="discount-badge" id="cartItemDiscount">-50%</div>
+                        <div class="original-price" id="cartItemOriginalPrice">399.000₫</div>
+                        <div class="current-price" id="cartItemPrice">199.500₫</div>
+                    </div>
+                </div>
+                <div class="cart-notification-dropdown">
+                    <select class="form-select" id="cartPurchaseOption">
+                        <option selected>For my account</option>
+                        <option>As a gift</option>
+                    </select>
+                </div>
+                <div class="cart-notification-actions">
+                    <button class="btn btn-secondary" id="continueShopping">Continue Shopping</button>
+                    <button class="btn btn-primary" id="viewCart">View My Cart (<span id="cartItemCount">3</span>)</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div th:fragment="scripts">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

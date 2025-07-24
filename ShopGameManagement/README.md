@@ -1,3 +1,9 @@
+# TEAM MEMBER
+Nguyễn Minh Khôi
+Nguyễn Phú Quý
+Nguyễn Thành Thắng
+Nguyễn Nhựt Huy
+
 # Game Shop Management System
 
 A Spring Boot application for managing a digital game shop, similar to platforms like Steam.
